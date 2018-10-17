@@ -6,7 +6,7 @@ feature "User can visit search page and see 10 closest stations" do
     # When I visit "/"
     visit '/'
     # And I fill in the search form with 80203 (Note: Use the existing search form)
-    fill_in :search, with: "80203"
+    fill_in :zip_code, with: "80203"
     # And I click "Locate"
     find('#locate').click
 
