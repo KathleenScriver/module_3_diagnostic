@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
   def index
-
-  end 
+    @search = Station.new(params[:zip_code]).closest
+  end
 end
