@@ -9,7 +9,6 @@ require 'support/factory_bot'
 require 'vcr'
 require 'webmock/rspec'
 require 'database_cleaner'
-SimpleCov.start "rails"
 DatabaseCleaner.strategy = :truncation
 
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
