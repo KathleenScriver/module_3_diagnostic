@@ -10,13 +10,11 @@ class NrelService
   end
 
   def propane_stations(limit)
-    propane_response = conn.get("/api/alt-fuel-stations/v1/nearest.json?location=#{@zip_code}&radius=10.0&fuel_type=LPG&limit=#{limit / 2}")
-    JSON.parse(propane_response.body, symbolize_names: true)[:fuel_stations]
+    parse_json(get_json("/api/alt-fuel-stations/v1/nearest.json?location=#{@zip_code}&radius=10.0&fuel_type=LPG&limit=#{limit / 2}"))
   end
 
   def electric_stations(limit)
-    electric_response = conn.get("/api/alt-fuel-stations/v1/nearest.json?location=#{@zip_code}&radius=10.0&fuel_type=ELEC&limit=#{limit / 2}")
-    JSON.parse(electric_response.body, symbolize_names: true)[:fuel_stations]
+    parse_json(get_json("/api/alt-fuel-stations/v1/nearest.json?location=#{@zip_code}&radius=10.0&fuel_type=ELEC&limit=#{limit / 2}"))
   end
 
   def conn
@@ -24,5 +22,13 @@ class NrelService
       faraday.params["api_key"] = ENV["nrel_key"]
       faraday.adapter Faraday.default_adapter
     end
+  end
+
+  def get_json(url)
+    conn.get(url)
+  end
+
+  def parse_json(response)
+    JSON.parse(response.body, symbolize_names: true)[:fuel_stations]
   end
 end
