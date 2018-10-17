@@ -12,9 +12,9 @@ describe StationSearch do
       it 'should return 10 closest stations to given zip' do
         stations = StationSearch.new(80203)
 
-        station = stations.closest.first
+        station = stations.closest_stations.first
 
-        expect(stations.closest.count).to eq(10)
+        expect(stations.closest_stations.count).to eq(10)
       end
     end
   end

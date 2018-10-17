@@ -12,7 +12,7 @@ class StationSearch
     response = conn.get("/api/alt-fuel-stations/v1/nearest.json?location=#{@zip_code}&radius=10.0&fuel_type=ELEC&fuel_type=LPG&limit=#{limit}")
 
     station_data = JSON.parse(response.body, symbolize_names: true)[:fuel_stations]
-require "pry"; binding.pry
+
     station_data.map do |raw_station|
       Station.new(raw_station)
     end
