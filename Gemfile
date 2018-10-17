@@ -15,6 +15,12 @@ gem 'figaro'
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
+  gem 'pry'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'launchy'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -27,4 +33,3 @@ group :test do
   gem 'webmock'
   gem 'capybara'
 end
-
