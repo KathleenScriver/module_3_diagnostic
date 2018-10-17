@@ -3,10 +3,10 @@ class NrelService
     @zip_code = zip_code
   end
 
-  def closest_stations(limit)
+  def closest_stations(limit = 10)
     propane_data = propane_stations(limit)
     electric_data = electric_stations(limit)
-    station_data = propane_data.zip(electric_data).flatten
+    propane_data.zip(electric_data).flatten
   end
 
   def propane_stations(limit)
