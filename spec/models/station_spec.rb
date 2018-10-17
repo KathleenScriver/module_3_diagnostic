@@ -1,9 +1,19 @@
 require "rails_helper"
 
-describe Station do
+describe StationSearch do
   it 'exists' do
-    station = Station.new(80203)
+    stations = StationSearch.new(80203)
 
-    expect(station).to be_a(Station)
+    expect(stations).to be_a(StationSearch)
+  end
+
+  context 'instance methods' do
+    context '#closest' do
+      it 'should return 10 closest stations to given zip' do
+        stations = StationSearch.new(80203)
+
+        expect(stations.closest.count).to eq(10)
+      end
+    end
   end
 end
