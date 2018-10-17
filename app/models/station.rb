@@ -1,14 +1,15 @@
-class StationSearch
-  def initialize(zip_code)
-    @zip_code = zip_code
-  end
+class Station
+  attr_reader :name,
+              :address,
+              :fuel_type,
+              :distance,
+              :access_times
 
-  def closest
-    #get api data
-
-    data.map do |raw_station|
-      Station.new(raw_station)
-    end
-
+  def initialize(data)
+    @name = data[:station_name]
+    @address = data[:street_address]
+    @fuel_type = data[:fuel_type_code]
+    @distance = data[:distance].to_f
+    @access_times = data[:access_days_times]
   end
 end

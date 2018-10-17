@@ -1,19 +1,17 @@
 require "rails_helper"
 
-describe StationSearch do
+describe Station do
   it 'exists' do
-    stations = StationSearch.new(80203)
+    station_params = {
+                      name: "Station 1",
+                      street_address: "2000 W Lower Colfax Ave",
+                      fuel_type: "LPG",
+                      distance: 1.8806,
+                      access_days_times: "7am-7pm M-Th and Sat, 7am-8pm F, 9am-5pm Sun"
+    }
 
-    expect(stations).to be_a(StationSearch)
-  end
+    station = Station.new(station_params)
 
-  context 'instance methods' do
-    context '#closest' do
-      it 'should return 10 closest stations to given zip' do
-        stations = StationSearch.new(80203)
-
-        expect(stations.closest.count).to eq(10)
-      end
-    end
+    expect(station).to be_a(Station)
   end
 end
