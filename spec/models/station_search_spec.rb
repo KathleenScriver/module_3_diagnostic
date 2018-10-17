@@ -8,7 +8,7 @@ describe StationSearch do
   end
 
   context 'instance methods' do
-    context '#closest' do
+    context '#closest_stations' do
       it 'should return 10 closest stations to given zip' do
         stations = StationSearch.new(80203)
 
