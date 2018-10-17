@@ -21,9 +21,9 @@ feature "User can visit search page and see 10 closest stations" do
     within(first('.station')) do
       expect(page). to have_css('.name')
       expect(page). to have_css('.address')
-      expect(page). to have_css('.fuel types')
+      expect(page). to have_css('.fuel-types')
       expect(page). to have_css('.distance')
-      expect(page). to have_css('.access times')
+      expect(page). to have_css('.access-times')
     end
   end
 end
